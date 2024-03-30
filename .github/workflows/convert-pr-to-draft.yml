@@ -16,6 +16,7 @@ jobs:
       - name: Convert PR to Draft
         run: |
           curl \
+            -f \
             -X POST \
             -H "Accept: application/vnd.github.v3+json" \
             -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
