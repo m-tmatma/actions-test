@@ -9,6 +9,10 @@ jobs:
   convert-to-draft:
     runs-on: ubuntu-latest
     steps:
+      - name: check
+        run: |
+          echo github.repository ${{ github.repository }}
+          echo github.event.pull_request.number ${{ github.event.pull_request.number }}
       - name: Convert PR to Draft
         run: |
           curl \
