@@ -2,8 +2,6 @@ name: Convert PR to Draft
 
 on:
   pull_request:
-    types:
-      - opened
     branches:
       - 'research/**'
       
