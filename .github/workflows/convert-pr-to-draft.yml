@@ -2,9 +2,9 @@ name: Convert PR to Draft
 
 on:
   pull_request:
-    branches:
-      - 'research/**'
-      
+    types:
+      - opened
+
 jobs:
   convert-to-draft:
     runs-on: ubuntu-latest
