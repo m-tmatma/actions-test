@@ -36,6 +36,9 @@ jobs:
             echo test, and deploy your project.
       - name: Group of log lines
         run: |
+            date
             echo "::group::My title"
             echo "Inside group"
+            date
             echo "::endgroup::"
+            date
