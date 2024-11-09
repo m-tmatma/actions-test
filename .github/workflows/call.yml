@@ -3,5 +3,5 @@ name: Call
 on:
 jobs:
   call-workflow:
-    uses: ./.github/workflows/reusable-1.yml@HEAD
+    uses: ./.github/workflows/reusable-1.yml
 
