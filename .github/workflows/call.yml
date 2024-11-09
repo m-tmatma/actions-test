@@ -1,0 +1,7 @@
+name: Call
+
+on:
+jobs:
+  call-workflow:
+    uses: .github/workflows/shared/reusable-1.yml@HEAD
+
