@@ -1,6 +1,7 @@
 name: Call
 
 on:
+  push:
 jobs:
   call-workflow:
     uses: ./.github/workflows/reusable-1.yml
