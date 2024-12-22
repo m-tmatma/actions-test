@@ -1,0 +1,22 @@
+name: pass variable
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set a variable
+        run: echo "MY_VARIABLE=Hello from Job1" >> $GITHUB_ENV
+
+  job2:
+    needs: job1
+    runs-on: ubuntu-latest
+    steps:
+      - name: Access the variable from Job1
+        run: echo "Value of MY_VARIABLE is $MY_VARIABLE"
+        env:
+          MY_VARIABLE: ${{ env.MY_VARIABLE }}
