@@ -9,14 +9,23 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     steps:
-      - name: Set a variable
-        run: echo "MY_VARIABLE=Hello from Job1" >> $GITHUB_ENV
+      - name: Create a file with a variable
+        run: echo "Hello from Job1" > my_variable.txt
+      - name: Upload the file as an artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-artifact
+          path: my_variable.txt
 
   job2:
     needs: job1
     runs-on: ubuntu-latest
     steps:
-      - name: Access the variable from Job1
-        run: echo "Value of MY_VARIABLE is $MY_VARIABLE"
-        env:
-          MY_VARIABLE: ${{ env.MY_VARIABLE }}
+      - name: Download the artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: my-artifact
+      - name: Read the variable from the file
+        run: |
+          MY_VARIABLE=$(cat my_variable.txt)
+          echo "Value of MY_VARIABLE is $MY_VARIABLE"
